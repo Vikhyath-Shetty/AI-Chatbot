@@ -1,9 +1,10 @@
 const express = require("express");
 const app = express();
 const { GoogleGenerativeAI } = require("@google/generative-ai");
+const { marked } = require("marked");
 const asyncHandler = require("express-async-handler");
 const dotenv = require("dotenv").config();
-const cors = require('cors');
+const cors = require("cors");
 const port = process.env.PORT || 5000;
 
 //fetching respose from api
@@ -15,7 +16,7 @@ const getResponse = asyncHandler(async (req, res) => {
   if (!result) {
     res.status(500).json({ message: "Sorry,Try again!" });
   }
-  const message = result.response.text();
+  const message = marked(result.response.text());
   res.status(200).json({ message: message });
 });
 
