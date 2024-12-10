@@ -39,6 +39,7 @@ body {
   max-width: 80%;
   clear: both;
 }
+
 .user-message {
   background-color: #e7a924;
   color: white;
@@ -46,13 +47,16 @@ body {
   border-radius: 10px;
   padding: 10px;
 }
+
 .bot-message {
   background-color: #e9ecef;
   color: black;
   float: left;
   border-radius: 10px;
   padding: 10px;
+  
 }
+
 #input-area {
   display: flex;
   background-image: linear-gradient(to right,#1a2a6c,#b21f1f,#fdbb2d);
@@ -71,6 +75,7 @@ body {
   outline: none;
   box-shadow: 3px 3px 6px rgba(0, 0, 0,0.5);
 }
+
 #send-btn {
   background-color: white;
   color: white;
@@ -84,4 +89,12 @@ body {
 
 #send-btn:active{
   transform: scale(0.9);
+}
+
+li{
+  list-style-type: none;
+}
+
+code,pre{
+  text-wrap: wrap;
 }

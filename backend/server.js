@@ -17,6 +17,7 @@ const getResponse = asyncHandler(async (req, res) => {
     res.status(500).json({ message: "Sorry,Try again!" });
   }
   const message = marked(result.response.text());
+  console.log(message)
   res.status(200).json({ message: message });
 });
 

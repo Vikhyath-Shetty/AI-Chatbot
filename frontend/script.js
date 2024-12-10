@@ -2,6 +2,7 @@ const messageInput = document.getElementById("message-input");
 const sendBtn = document.getElementById("send-btn");
 const chatMessages = document.getElementById("chat-messages");
 
+//rendering the session history
 renderHistory();
 
 sendBtn.addEventListener("click", startChat);
@@ -10,16 +11,16 @@ messageInput.addEventListener("keypress", (e) => {
 });
 
 function renderPrompt(prompt) {
-  const userMessage = document.createElement("div");
+  const userMessage = document.createElement("li");
   userMessage.classList.add("message", "user-message");
   userMessage.textContent = prompt;
   chatMessages.appendChild(userMessage);
 }
 
 function renderResponse(message) {
-  const botMessageEl = document.createElement("div");
+  const botMessageEl = document.createElement("li");
   botMessageEl.classList.add("message", "bot-message");
-  botMessageEl.textContent = message;
+  botMessageEl.innerHTML = message;
   chatMessages.appendChild(botMessageEl);
 }
 
@@ -39,7 +40,6 @@ function renderHistory() {
     renderResponse(message);
   });
 }
-
 
 function sendPrompt(prompt) {
   return fetch("http://localhost:5001/api/prompt", {
